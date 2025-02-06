@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const StBox = styled.div`
-  background-color: beige;
+  background-color: #f6f6f6;
   text-align: center;
   height: 230px;
   border-radius: 20px;
@@ -32,6 +32,7 @@ const CatchBox = styled.div`
 
 const Dashboard = () => {
     return (
+      <div>
         <StBox>
             <h2>나만의 포켓몬</h2> 
             <CatchBoxContainer>
@@ -43,6 +44,7 @@ const Dashboard = () => {
                 <CatchBox />
             </CatchBoxContainer>
         </StBox>
+      </div>
     );
 };
 
