@@ -1,4 +1,36 @@
 import styled from "styled-components";
+import PokemonCard from "./PokemonCard";
+
+const Dashboard = ({selectedPokemons}) => {
+    const maxSlots = 6;  
+  return (
+      <div>
+        <StBox>
+            <h2>나만의 포켓몬</h2> 
+            <CatchBoxContainer>
+  {Array.from({ length: maxSlots }).map((_, index) => (
+    <CatchBox key={index}>
+      {selectedPokemons[index] ? (
+        <PokemonCard
+          pokemon={selectedPokemons[index]}
+          hideCatchButton={true} // 잡기 버튼 숨김
+        />
+      ) : (
+        // 기본 이미지 유지
+        <img 
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Pokebola-pokeball-png-0.png/800px-Pokebola-pokeball-png-0.png" 
+          alt="포켓볼"
+          style={{ width: "60%", height: "auto" }}
+        />
+      )}
+    </CatchBox>
+  ))}
+</CatchBoxContainer>
+
+        </StBox>
+      </div>
+    );
+};
 
 const StBox = styled.div`
   background-color: #f6f6f6;
@@ -30,22 +62,5 @@ const CatchBox = styled.div`
   border-color: gray;
 `;
 
-const Dashboard = () => {
-    return (
-      <div>
-        <StBox>
-            <h2>나만의 포켓몬</h2> 
-            <CatchBoxContainer>
-                <CatchBox />
-                <CatchBox />
-                <CatchBox />
-                <CatchBox />
-                <CatchBox />
-                <CatchBox />
-            </CatchBoxContainer>
-        </StBox>
-      </div>
-    );
-};
 
 export default Dashboard;

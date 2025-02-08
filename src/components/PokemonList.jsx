@@ -16,11 +16,14 @@ const ListContainer = styled.div`
 
 
 
-const PokemonList = () => {
+const PokemonList = ({addPokemon}) => {
     return (
         <ListContainer>
             {MockData.map((pokemon) => (
-                <PokemonCard key={pokemon.id} pokemon={pokemon} />
+                <PokemonCard 
+                key={pokemon.id} 
+                pokemon={pokemon} 
+                addPokemon={addPokemon}/>
             ))}
         </ListContainer>
     );

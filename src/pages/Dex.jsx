@@ -3,13 +3,14 @@
 import Dashboard from "../components/Dashboard";
 import PokemonList from "../components/PokemonList";
 
-const Dex = () => {
+const Dex = ({addPokemon, selectedPokemons}) => {
+
 
 
     return (
         <div>
-            <Dashboard />
-            <PokemonList />
+            <Dashboard selectedPokemons={selectedPokemons}/>
+            <PokemonList addPokemon={addPokemon}/>
         </div>
     )
 }
