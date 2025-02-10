@@ -45,19 +45,6 @@ const PokemonDetaiContainer = styled.div`
     padding: 2rem;
 `;
 
-const GoBack = styled.button`
-    background-color: #eca71e;
-    width: 5.5rem;
-    height: 2.3rem;
-    margin-top: 2rem;
-    text-align: center;
-    border-radius: 2rem;
-    color: white;
-    font-weight: 600;
-    box-shadow: 1px 1px 6px rgba(167, 111, 38, 0.8);
-    cursor: pointer;
-`;
-
 const PokemonDetailBox = styled.div`
     background-color: rgba(255, 255, 255, 0.6);
     box-shadow: 2px 2px 10px rgba(241, 169, 81, 0.3);
@@ -92,6 +79,20 @@ const DetailContent = styled.p`
     color: #ce842b;
     font-size: 1.3rem;
     margin: 1rem;
+`;
+
+const GoBack = styled.button`
+    background-color: #eca71e;
+    width: 9rem;
+    height: 4rem;
+    margin-top: 4rem;
+    text-align: center;
+    border-radius: 2rem;
+    color: white;
+    font-size: 1.3rem;
+    font-weight: 600;
+    box-shadow: 1px 1px 6px rgba(167, 111, 38, 0.8);
+    cursor: pointer;
 `;
 
 export default PokemonDetail;
