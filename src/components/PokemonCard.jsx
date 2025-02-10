@@ -1,6 +1,11 @@
 import styled from "styled-components";
 
 const PokemonCard = ({ pokemon, hideCatchButton, addPokemon, hideRemoveButton, onRemove }) => {
+  const handleCatchClick = () => {
+    // addPokemon 함수 호출
+    addPokemon(pokemon); // 포켓몬을 추가하는 함수 호출
+  };
+
   return (
     <CardContainer>
       <img src={pokemon.img_url} alt={pokemon.korean_name} />
@@ -8,7 +13,7 @@ const PokemonCard = ({ pokemon, hideCatchButton, addPokemon, hideRemoveButton, o
       <p>ID: {pokemon.id}</p>
 
       {!hideCatchButton && (
-        <CatchBtn onClick={() => addPokemon(pokemon)}>잡기</CatchBtn>
+        <CatchBtn onClick={handleCatchClick}>잡기</CatchBtn>
       )}
 
       {!hideRemoveButton && (
