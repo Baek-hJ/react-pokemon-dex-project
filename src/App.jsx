@@ -1,24 +1,32 @@
 import { useState } from 'react';
-import Router from './shared/Router'
-
+import Router from './shared/Router';
 
 const App = () => {
-
   const [selectedPokemons, setSelectedPokemons] = useState([]);
 
-  // 포켓몬 추가 함수 (자식 컴포넌트에서 사용하도록 props로 내려줌)
   const addPokemon = (pokemon) => {
-    setSelectedPokemons ([...selectedPokemons, pokemon]);
-  }
+    setSelectedPokemons((prev) => {
+      if (prev.length >= 6) return prev; // 최대 6개개
+        if (prev.some((p) => p.id === pokemon.id)) return prev; // 중복 방지
+
+      return [...prev, pokemon];
+    });
+  };
+
+  const removePokemon = (pokemonToRemove) => {
+    setSelectedPokemons((prev) => prev.filter((pokemon) => pokemon.id !== pokemonToRemove.id));
+  };
 
   return (
     <div>
-      <Router 
-      addPokemon={addPokemon} 
-      selectedPokemons={selectedPokemons}
-      setSelectedPokemons={setSelectedPokemons} />
+      <Router
+        addPokemon={addPokemon}
+        removePokemon={removePokemon}
+        selectedPokemons={selectedPokemons}
+        setSelectedPokemons={setSelectedPokemons}
+      />
     </div>
-  )
-}
+  );
+};
 
 export default App;
